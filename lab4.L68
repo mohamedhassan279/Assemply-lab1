@@ -1,0 +1,44 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 11/4/2022 2:53:07 AM
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by :
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9  
+00001000                            10  * Put program code here
+00001000  1039 00002000             11          MOVE.B    X,D0
+00001006  1239 00002001             12          MOVE.B    Y,D1
+0000100C  B03C 0032                 13          CMP.B     #50,D0
+00001010  6F00 000A                 14          BLE       SAVE
+00001014  0600 003C                 15          ADD.B     #60,D0
+00001018  0401 000A                 16          SUB.B     #10,D1
+0000101C  D200                      17  SAVE    ADD.B     D0,D1
+0000101E  0401 0014                 18          SUB.B     #20,D1
+00001022  13C1 00002002             19          MOVE.B    D1,Z
+00001028  FFFF FFFF                 20          SIMHALT             ; halt simulator
+0000102C                            21  
+0000102C                            22  * Put variables and constants here
+00002000                            23      ORG     $2000
+00002000= 14                        24  X   DC.B    20
+00002001= 1E                        25  Y   DC.B    30
+00002002                            26  Z   DS.B    1
+00002003                            27      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+SAVE                101C
+START               1000
+X                   2000
+Y                   2001
+Z                   2002
